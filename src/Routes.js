@@ -4,7 +4,7 @@ import Beers from './components/Beers';
 import Home from './components/Home';
 import Brewery from './components/Brewery';
 import Beer from './components/Beer';
-import Header from './components/Header';
+
 
 const Routes = (
   <Router>

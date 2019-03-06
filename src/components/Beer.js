@@ -4,35 +4,6 @@ import axios from 'axios';
 
 const SERVER_URL = 'http://localhost:3000/home.json'; // Change this in production.
 
-// class BeerForm extends Component {
-//   constructor() {
-//     super();
-//     this.state = { content: '' };
-//     this._handleSubmit = this._handleSubmit.bind(this);
-//     this._handleChange = this._handleChange.bind(this);
-//   }
-
-  // _handleSubmit(e) {
-  //   e.preventDefault();
-  //   this.props.onSubmit( this.state.content );
-  //   this.setState({content: ''}); // Clear out the form for the next secret.
-  //   // How would we give focus back to the textarea? refs
-  // }
-
-  // _handleChange(e) {
-  //   this.setState( { content: e.target.value } );
-  // }
-
-//   render() {
-//     return (
-//       <form onSubmit={ this._handleSubmit }>
-//         <textarea onChange={ this._handleChange } value={ this.state.content }></textarea>
-//         <input type="submit" value="Tell" />
-//       </form>
-//     );
-//   }
-// }
-
 const Brewery = (props) => {
   return (
     <div>
@@ -43,7 +14,7 @@ const Brewery = (props) => {
       </Link>
       <br />
       {props.brewery.beers.map(b => {
-        return <img style={ {maxHeight: "10em", maxWidth: "10em"} } src={b.beer_image} />
+        return <img style={ {maxHeight: "10em", maxWidth: "10em"} } src={b.beer_image} alt="beers" />
       })}
     </div>
   );

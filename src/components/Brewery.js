@@ -38,6 +38,7 @@ class Brewery extends Component {
         <h2>Brewery: { this.props.match.params.brewery }</h2>
           <p>
             Coming soon! Go back <Link to="/">home</Link>
+
           </p>
       </div>
     );
@@ -45,7 +46,9 @@ class Brewery extends Component {
 
   // const ShowBeer () => {
   //   return(
+  //     <div>
   //
+  //     </div>
   //   );
   // }
 
