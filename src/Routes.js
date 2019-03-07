@@ -9,8 +9,8 @@ import Header from './components/Header';
 const Routes = (
   <Router>
     <div>
-      {/* <Route exact path="/" component={ Home } />
-      <Route exact path="/beers" component={ Beers } /> */}
+      <Route exact path="/" component={ Home } />
+      <Route exact path="/beers" component={ Beers } />
       <Route path="/breweries/:brewery" component={ Brewery } />
       <Route exact path="/beer" component={ Beer } />
     </div>
