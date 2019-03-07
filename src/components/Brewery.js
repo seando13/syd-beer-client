@@ -27,7 +27,7 @@ class Brewery extends Component {
       }
     ).then( (results) => {
       console.log(results)
-      this.setState({breweryData: results.data});
+      this.setState({breweryData: results.data.beers[0]});
     });
   }
 
@@ -38,7 +38,9 @@ class Brewery extends Component {
         <h2>Brewery: { this.props.match.params.brewery }</h2>
           <p>
             Coming soon! Go back <Link to="/">home</Link>
-
+            <p>
+            {this.state.breweryData.description}
+            </p>
           </p>
       </div>
     );
