@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-const SERVER_URL = 'http://localhost:3000/brewery.json'; // Change this in production.
+//const SERVER_URL = 'https://ausbeers.herokuapp.com'; // Change this in production.
+const SERVER_URL = 'http://localhost:3000';
 
 class Brewery extends Component {
   constructor() {
     super();
     this.state = {
       breweryName: "",
-      breweryData: []
+      breweryData: null
     };
   }
 
@@ -17,43 +18,46 @@ class Brewery extends Component {
     this.setState({
       breweryName: this.props.match.params.brewery
     }, () => {
-      this.getBrewery(this.state.brewery)
+      this.getBrewery(this.state.breweryName)
     })
   };
 
-  getBrewery(content){
-    axios.get(SERVER_URL, {
-        brewery: {content}
-      }
-    ).then( (results) => {
+  getBrewery(name){
+    axios.get(SERVER_URL + '/breweries/' + name)
+    .then( (results) => {
       console.log(results)
-      this.setState({breweryData: results.data.beers[0]});
+      this.setState({breweryData: results.data});
     });
   }
 
   render() {
-    //console.log('ping');
+    if (!this.state.breweryData) {
+      return <p>Loading...</p>
+    }
+    console.log('ping', this.state.breweryData);
+
     return (
       <div>
         <h2>Brewery: { this.props.match.params.brewery }</h2>
-          <p>
-            Coming soon! Go back <Link to="/">home</Link>
-            <p>
-            {this.state.breweryData.description}
-            </p>
-          </p>
+            <p>Go back to <Link to="/beer">All Breweries</Link></p>
+        { this.state.breweryData.beers.map( (b) => <ShowBeer beer={b} />) }
       </div>
     );
   }
 
-  // const ShowBeer () => {
-  //   return(
-  //     <div>
-  //
-  //     </div>
-  //   );
-  // }
+}
 
+const ShowBeer = (props) => {
+  return(
+    <div>
+      <h3><b>Beer Name:</b>  { props.beer.name }</h3>
+      <img src={props.beer.beer_image} />
+      <p><b>Brewery Notes:</b>  { props.beer.description }</p>
+      <p><b>Alcohol Content:</b>  { props.beer.abv }</p>
+      <p><b>International Bitterness Unit:</b>  { props.beer.ibu }</p>
+      <br></br>
+    </div>
+  );
 }
 
 export default Brewery;
