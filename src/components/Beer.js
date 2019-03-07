@@ -14,7 +14,7 @@ const Brewery = (props) => {
       </Link>
       <br />
       {props.brewery.beers.map(b => {
-        return <img style={ {maxHeight: "10em", maxWidth: "10em"} } src={b.beer_image} alt="beers" />
+        return <img style={ {maxHeight: "10.5em", maxWidth: "10.5em"} } src={b.beer_image} alt="beers" />
       })}
     </div>
   );

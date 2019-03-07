@@ -6,18 +6,18 @@ class Home extends Component {
     return (
       <div>
         <h2>Welcome to Oz Beer DB</h2>
-        <p>
+        {/* <p>
           Please check out our <Link to="/beers">beers</Link>
-        </p>
+        </p> */}
         <p>
-          Please check out our <Link to="/beer">json beer</Link>
+          Please check out our <Link to="/beer">Aus Beers</Link>
         </p>
-        <p>
+        {/* <p>
           <Link to="/breweries/Sydney">Sydney Breweries</Link>
         </p>
         <p>
           <Link to="/breweries/Melbourne">Melbourne Breweries</Link>
-        </p>
+        </p> */}
       </div>
     );
   }
