@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-const SERVER_URL = 'https://ausbeers.herokuapp.com'; // Change this in production.
+const SERVER_URL = 'https://ausbeers.herokuapp.com/'; // Change this in production.
 //const SERVER_URL = 'http://localhost:3000';
 
 class Brewery extends Component {
